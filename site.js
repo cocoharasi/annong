@@ -42,6 +42,11 @@
     while(i < lines.length) {
       const line = lines[i];
       if(!line.trim()){ i++; continue; }
+      const goFigure = line.match(/^!\[([^\]]+)\]\((assets\/go-file-upload\/[0-9]{2}\.webp)\)$/);
+      if(goFigure){
+        result.push('<figure style="margin:1.4rem 0"><img loading="lazy" style="display:block;max-width:100%;height:auto;border:1px solid #dedbd5;border-radius:6px" src="'+escapeHTML(goFigure[2])+'" alt="'+escapeHTML(goFigure[1])+'"><figcaption style="font-size:.85em;color:#666;margin-top:.4rem">'+escapeHTML(goFigure[1])+'</figcaption></figure>');
+        i++; continue;
+      }
       const fence = line.match(/^\s*```([^`]*)$/);
       if(fence) {
         const lang = fence[1].trim().replace(/[^\w-]/g,''); const code=[]; i++;
