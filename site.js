@@ -129,6 +129,7 @@
     $('#post-title').textContent=p.title;
     $('#post-subtitle').textContent=p.excerpt;
     $('#post-meta').innerHTML='<span>'+escapeHTML(formatDate(p.date))+'</span><span>'+escapeHTML(cat.name)+'</span><span>약 '+readMins(p)+'분 읽기</span>';
+    $('#post-content').style.minWidth=p.slug==='go-file-upload-server'?'0':'';
     $('#post-content').innerHTML=renderMarkdown(p.body);
     $('#post-aside').innerHTML='<div class="aside-item"><small>CLASSIFICATION</small><span>'+escapeHTML(cat.name)+'</span></div>'
       +'<div class="aside-item"><small>RECORDED</small><span>'+escapeHTML(formatDate(p.date))+'</span></div>'
